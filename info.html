@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fetch Machine</title>
+</head>
+<body>
+  
+  <h1>Fetch Machine</h1>
+
+  <h3>Description</h3>
+  <p>This application is needed to make network requests on behalf of the server and not the web client. When creating a network request from a web client, the request must go through the CORS rules, and when creating a request on behalf of the server, passing these rules is not necessary, as I noticed. If you are making a request from a website and do not want to be bound by CORS rules, then you need to make a POST request to https://fetch-machine.herokuapp.com/fetch_machine/getFetch with a url address and the necessary request parameters in the form of body.</p>
+
+  <h3>Documentation</h3>
+  <p>Body of POST request to Fetch Machine looks like JSON object with 4 properties:</p>
+  <ul>
+    <li>url: 'https://example.com' // url address of the web resource to which you want to send a request</li>
+    <li>method: 'GET' // one of the network request methods</li>
+    <li>headers: {'Content-Type': 'plain/text'} // headers of request</li>
+    <li>body: 'some data' // if you use POST(or similar method), data which you want to send</li>
+  </ul>
+
+  <p>Request looks like this(for fetch):</p>
+  <pre>
+    fetch('https://fetch-machine.herokuapp.com/fetch_machine/getFetch', {
+      method: 'POST',
+      body: JSON.stringify({
+        url: 'https://example.com',
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'},
+        body: {
+          title: 'some title'
+        }
+      })
+    })
+  </pre>
+
+  <p>After the request, you receive a promise with your data.</p>
+  <p>I have async FM_makeFetch function to facilitate code writing https://fetch-machine.herokuapp.com/fetchMachineClient.js.</p>
+
+</body>
+</html>
