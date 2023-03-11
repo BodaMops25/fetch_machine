@@ -1,7 +1,7 @@
 // STATIC SERVER
 
 const http = require('http'),
-      PORT = process.env.PORT || 8080,
+      PORT = process.env.PORT || 80,
       fs = require('fs').promises,
       fetch = require('node-fetch')
 
