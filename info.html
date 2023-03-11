@@ -11,7 +11,7 @@
   <h1>Fetch Machine</h1>
 
   <h3>Description</h3>
-  <p>This application is needed to make network requests on behalf of the server and not the web client. When creating a network request from a web client, the request must go through the CORS rules, and when creating a request on behalf of the server, passing these rules is not necessary, as I noticed. If you are making a request from a website and do not want to be bound by CORS rules, then you need to make a POST request to http://ec2-13-48-131-187.eu-north-1.compute.amazonaws.com:8080/fetch_machine/getFetch with a url address and the necessary request parameters in the form of body.</p>
+  <p>This application is needed to make network requests on behalf of the server and not the web client. When creating a network request from a web client, the request must go through the CORS rules, and when creating a request on behalf of the server, passing these rules is not necessary, as I noticed. If you are making a request from a website and do not want to be bound by CORS rules, then you need to make a POST request to http://ec2-13-48-131-187.eu-north-1.compute.amazonaws.com/fetch_machine/getFetch with a url address and the necessary request parameters in the form of body.</p>
 
   <h3>Documentation</h3>
   <p>Body of POST request to Fetch Machine looks like JSON object with 4 properties:</p>
@@ -24,7 +24,7 @@
 
   <p>Request looks like this(for fetch):</p>
   <pre>
-    fetch('http://ec2-13-48-131-187.eu-north-1.compute.amazonaws.com:8080/fetch_machine/getFetch', {
+    fetch('http://ec2-13-48-131-187.eu-north-1.compute.amazonaws.com/fetch_machine/getFetch', {
       method: 'POST',
       body: JSON.stringify({
         url: 'https://example.com',
@@ -38,7 +38,7 @@
   </pre>
 
   <p>After the request, you receive a promise with your data.</p>
-  <p>I have async FM_makeFetch function to facilitate code writing http://ec2-13-48-131-187.eu-north-1.compute.amazonaws.com:8080/fetchMachineClient.js.</p>
+  <p>I have async FM_makeFetch function to facilitate code writing http://ec2-13-48-131-187.eu-north-1.compute.amazonaws.com/fetchMachineClient.js.</p>
 
 </body>
 </html>
