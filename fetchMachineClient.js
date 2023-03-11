@@ -1,5 +1,5 @@
 async function FM_makeFetch(url, {method = 'GET', headers, body} = {}) {
-  return fetch('http://ec2-13-48-131-187.eu-north-1.compute.amazonaws.com:8080/fetch_machine/getFetch', {
+  return fetch('http://ec2-13-48-131-187.eu-north-1.compute.amazonaws.com/fetch_machine/getFetch', {
     method: 'POST',
     body: JSON.stringify({
       url: url,
