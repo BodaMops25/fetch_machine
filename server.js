@@ -56,10 +56,7 @@ const server = http.createServer(async (req, res) => {
       response = err.toString()
     }
 
-    res.writeHead(200, {
-      'Content-Type': 'text/plain',
-      'Access-Control-Allow-Origin': '*'
-    })
+    res.writeHead(200, {'Content-Type': 'text/plain'})
     res.write(response)
     res.end()
   }
