@@ -6,6 +6,8 @@ const http = require('http'),
       fetch = require('node-fetch')
 
 const server = http.createServer(async (req, res) => {
+      
+  res.setHeader('Access-Control-Allow-Origin', '*')
 
   if(req.method === 'GET') {
 
