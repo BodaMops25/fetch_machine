@@ -1,7 +1,7 @@
 // STATIC SERVER
 
 const http = require('http'),
-      PORT = process.env.PORT || 80,
+      PORT = process.env.PORT || 8080,
       fs = require('fs').promises,
       fetch = require('node-fetch')
 
@@ -15,6 +15,9 @@ const server = http.createServer(async (req, res) => {
 
     fs.readFile(__dirname + req.url)
     .then(content => {
+
+      content = content.toString()
+      content = content.replace(/{{(.*?)}}/g, (match, key) => variables[key] ? variables[key] : match)
 
       let contentType = ''
 
@@ -79,4 +82,8 @@ function getPostData(req) {
     }
   })
   return new Promise(res => req.on('end', () => res(body)))
+}
+
+const variables = {
+  website_domain: process.env.WEBSITE_DOMAIN || "http://localhost:" + PORT
 }
